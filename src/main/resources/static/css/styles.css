@@ -25,6 +25,17 @@ body {
     z-index: 1000;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
 .logo h1 {
     color: #2c3e50;
     font-size: 1.8rem;

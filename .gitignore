@@ -36,5 +36,16 @@ build/
 *.log
 logs/
 
-### Application Properties ###
-src/main/resources/application-prod.properties
+### Environment Variables ###
+.env
+application-dev.properties
+application-prod.properties
+
+### OS generated files ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

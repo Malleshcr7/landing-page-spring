@@ -3,6 +3,7 @@ package com.LandingPage.webapplication.controller;
 import com.LandingPage.webapplication.dto.ContactMessageDTO;
 import com.LandingPage.webapplication.entity.ContactMessage;
 import com.LandingPage.webapplication.service.ContactMessageService;
+import com.LandingPage.webapplication.service.EmailService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,11 +19,20 @@ import java.util.List;
 public class ContactMessageController {
 
     private final ContactMessageService contactMessageService;
+    private final EmailService emailService;
 
     @PostMapping
-    public ResponseEntity<ContactMessage> createMessage(@Valid @RequestBody ContactMessageDTO messageDTO) {
-        ContactMessage savedMessage = contactMessageService.saveMessage(messageDTO);
-        return new ResponseEntity<>(savedMessage, HttpStatus.CREATED);
+    public ResponseEntity<String> createMessage(@Valid @RequestBody ContactMessageDTO messageDTO) {
+        try {
+            emailService.sendContactFormEmail(
+                messageDTO.getName(),
+                messageDTO.getEmail(),
+                messageDTO.getMessage()
+            );
+            return ResponseEntity.ok("Message sent successfully");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Failed to send message: " + e.getMessage());
+        }
     }
 
     @GetMapping
