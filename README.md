@@ -105,7 +105,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Telugu Mallesh - [telugumallesh@gmail.com](mailto:telugumallesh@gmail.com)
 
-Project Link: [https://github.com/yourusername/your-repo-name](https://github.com/yourusername/your-repo-name)
+Project Link: [[https://github.com/Malleshcr7/landing-page-spring](https://github.com/Malleshcr7/landing-page-spring))
 
 ## Acknowledgments
 
